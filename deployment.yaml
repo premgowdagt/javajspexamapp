@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-tomcat-app
+  labels:
+    app: java-tomcat-app
+spec:
+  replicas: 3  # You can adjust the number of replicas based on your needs
+  selector:
+    matchLabels:
+      app: java-tomcat-app
+  template:
+    metadata:
+      labels:
+        app: java-tomcat-app
+    spec:
+      containers:
+      - name: java-tomcat-app
+        image: premgowda07/java-tomcat-app:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 8100
